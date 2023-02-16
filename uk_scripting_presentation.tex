@@ -37,7 +37,7 @@
   \item Google is your friend \pause
   \item StackExchange/StackOverflow is your friend \pause
   \item ChatGPT is (well maybe not) your friend \pause
-  \item Your frieds are your fireds \pause
+  \item Your friends are your friends \pause
   \item Don't be afraid to make mistakes \pause
   \end{itemize}
 \end{frame}
@@ -88,15 +88,47 @@
   \begin{itemize}
   \item history
   \item pwd
-  \item whoami
   \item ls -latrh
   \item less
   \item grep
-  \item echo
   \item ...
   \end{itemize}
 
   Some lean themselves more to interactive use...and other scripting...
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Commands Are Built To Work Together}
+  Learn how to pipe the output of one command into the input of another:
+
+\begin{verbatim}
+ls -latrh | grep -i batt
+\end{verbatim}
+
+Learn how to redirect output:
+
+\begin{verbatim}
+ls -latrh | grep -i batt > this_file_contains_the_result.txt
+\end{verbatim}
+
+
+\end{frame}
+
+\begin{frame}[fragile]\frametitle{Commands That Can Help With Backup}
+  Making a tarball is easy!
+
+\begin{verbatim}
+tar cvzf ./battery_logs_16FEB2023.tar.gz ./battery_logs
+\end{verbatim}
+
+And then you can put a copy somewhere else for safe keeping...
+
+\begin{verbatim}
+rsync --progress --partial --append \
+./battery_logs_16FEB2023.tar.gz \
+awalker@10.210.233.243:~/Documents/Badger/
+\end{verbatim}
+
+
 \end{frame}
 
 \begin{frame}\frametitle{History Example}
@@ -124,6 +156,10 @@ done
 \end{verbatim}
 \end{frame}
 
+\section{Live Demo}
+\begin{frame}\frametitle{Automating Battery Health Evaluation}
+  Going to try to do a live demo of something I have written a scipt for to automate some of my work at Badger.
+\end{frame}
 
 \section{Closing}
 \begin{frame}[fragile]\frametitle{Where Do I Go From Here}
@@ -143,6 +179,8 @@ akwalker2048@gmail.com
   \begin{enumerate}
   \item tmux
   \item git
+  \item rsync
+  \item ...
   \end{enumerate}
 \end{frame}
 
