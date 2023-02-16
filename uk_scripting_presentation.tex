@@ -1,0 +1,117 @@
+\documentclass{beamer}
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{pslatex}
+\usepackage{epsf}
+\usepackage{subfigure}
+
+\usetheme{Montpellier}
+
+\beamersetuncovermixins{\opaqueness<1>{25}}{\opaqueness<2->{15}}
+\begin{document}
+\title{Linux and Scripting}
+\subtitle{Making the Hard Stuff Easy}
+\author{Andrew Walker}
+\date{\today}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}\frametitle{Table of contents}\tableofcontents
+\end{frame}
+
+\section{Robot Demo}
+\begin{frame}\frametitle{Introducing Marty the Robot}
+  Nothing to see here...this part is just a live demo of a product that:
+  \begin{enumerate}
+  \item Runs linux
+  \item Critical code written in C, C++, and Python
+  \item And built with...and running some live...shell scripts...
+  \end{enumerate}
+\end{frame}
+
+\section{Introduction to Scripting}
+\subsection{Before You Get Started}
+\begin{frame}\frametitle{Someone Has Already Done This}
+  \begin{itemize}
+  \item Google is your friend \pause
+  \item StackExchange/StackOverflow is your friend \pause
+  \item ChatGPT is (well maybe not) your friend \pause
+  \item Your frieds are your fireds \pause
+  \item Don't be afraid to make mistakes \pause
+  \end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Google Example}
+  \begin{figure}[!htb]
+    \epsfxsize=0.5\linewidth
+    \begin{center}
+      \epsffile{./figures/google_is_user_root.eps}
+    \end{center}
+    \caption{Check User Is Root}\label{fig:google-user-is-root}
+  \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{StackExchange/StackOverflow Example}
+  \begin{figure}[!htb]
+    \epsfxsize=0.25\linewidth
+    \begin{center}
+      \epsffile{./figures/stackoverflow_is_user_root.eps}
+    \end{center}
+    \caption{Check User Is Root}\label{fig:stack-user-is-root}
+  \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{ChatGPT Example}
+  \begin{figure}[!htb]
+    \epsfxsize=0.5\linewidth
+    \begin{center}
+      \epsffile{./figures/chatgpt_am_i_root.eps}
+    \end{center}
+    \caption{Check User Is Root}\label{fig:chat-user-is-root}
+  \end{figure}
+\end{frame}
+
+\begin{frame}\frametitle{ChatGPT I Tried To Get Out Of This}
+  \begin{figure}[!htb]
+    \epsfxsize=0.4\linewidth
+    \begin{center}
+      \epsffile{./figures/chatgpt_wrote_this_for_me.eps}
+    \end{center}
+    \caption{Just Do My Presentation For Me}\label{fig:chat-all}
+  \end{figure}
+\end{frame}
+
+\subsection{Just Start With The Command Line}
+\begin{frame}\frametitle{All Commands Can Be Later Included In Scripts}
+  Familiarize with common commands...a few examples:
+  \begin{itemize}
+  \item history
+  \item pwd
+  \item whoami
+  \item ls -latrh
+  \item less
+  \item grep
+  \item echo
+  \item ...
+  \end{itemize}
+
+  Some lean themselves more to interactive use...and other scripting...
+\end{frame}
+
+\subsection{And...Do Something With a Script}
+\begin{frame}[fragile]\frametitle{Loops}
+  Sometimes, you need to loop through files and do something with them:
+\begin{verbatim}
+#!/bin/sh
+
+for fname in *.png; do
+    bname=$(basename -s .png $fname)
+    convert $fname eps3:$bname.eps
+done
+\end{verbatim}
+\end{frame}
+
+
+
+\end{document}
